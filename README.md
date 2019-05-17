@@ -31,10 +31,14 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
 1. What is the DOM?
+The DOM or Document Object Model is a dynamic object representation of the webpage(s) structured as a tree composed of parent and children nodes, going from the root node representing the html tag all the way down to node and leaf nodes, these nodes represent the html element and content rendered by the browser, the DOM is a language neutral API meaning that it supports multiple languages and was not designed with a specific language in mind.
+Through the DOM we can modify the markup of webpages updating is styling, content, and structure, when appliying styling through the DOM, those becomes inline styling, directly effecting the elements, these inline styling takes precendence over CSS counterparts so therefore gets rendered by the browser(the DOM those not effect the CSS files).
 
 2. What is an event?
+Events are the way users interact with the browser, events are used to collect information from the user interaction with the webpage and send back response through the use of function that give dynamic functionality to the browser or collect data.
 
 3. What is an event listener?
+An event listener is the 
 
 4. Why would we convert a NodeList into an Array?
 
