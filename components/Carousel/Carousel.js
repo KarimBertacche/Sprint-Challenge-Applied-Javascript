@@ -17,9 +17,10 @@ class Carousel {
                 imageCounter();
                 console.log(this.currentImg);
             } else {
+                let prevCount = counter;
                 --counter;
                 removeActive();
-                imageCounter();
+                imageCounter(prevCount);
             }
         })
         
@@ -29,21 +30,31 @@ class Carousel {
                 removeActive();
                 imageCounter();
             } else {
+                let prevCount = counter;
                 ++counter;
                 removeActive();
-                imageCounter();
+                imageCounter(prevCount);
             }
         })
 
-        const imageCounter = () => {
-            images.forEach(imageIdx => {
+        const imageCounter = (prevCount) => {
+            images.forEach(imageIdx => {   
                 if(imageIdx === counter) {
                     this.currentImg = document.querySelector(`img[data-id="${imageIdx}"]`);
-                    this.currentImg.style.display = 'block'; 
-                    this.currentImg.style.animationName = 'slideLeft';
-                    this.currentImg.style.animationTimingFunction = 'easeOut';
-                    this.currentImg.style.animationDuration = '3s';
+
+                    if(prevCount = imageIdx - 1){
+                        this.currentImg.style.animationName = 'slideRight';
+                        this.currentImg.style.animationTimingFunction = 'easeOut';
+                        this.currentImg.style.animationDuration = '1.5s';
+                    } else if(prevCount = imageIdx + 1){
+                        this.currentImg.style.animationName = 'slideLeft';
+                        this.currentImg.style.animationTimingFunction = 'easeOut';
+                        this.currentImg.style.animationDuration = '1.5s'; 
+                    }
+
+                    this.currentImg.style.display = 'block';       
                     this.currentImg.classList.add('active'); 
+
                     return this.currentImg;
                 }   
             });

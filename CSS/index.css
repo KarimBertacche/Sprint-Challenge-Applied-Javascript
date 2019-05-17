@@ -292,6 +292,7 @@ body {
   top: 50%;
   left: 25px;
   transform: translate(0, -50%);
+  z-index: 20;
 }
 .carousel .right-button {
   top: 50%;
@@ -309,16 +310,20 @@ body {
 @keyframes slideLeft {
   0% {
     transform: translateX(100%);
+    opacity: 0;
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 @keyframes slideRight {
   0% {
-    transform: translateX(100%);
+    transform: translateX(-100%);
+    opacity: 0;
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
