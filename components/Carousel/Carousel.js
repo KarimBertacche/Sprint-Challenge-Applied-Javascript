@@ -1,8 +1,74 @@
 class Carousel {
+    constructor(carousel, currentIdx){
+        this.carousel = carousel;
+        const leftBtn = this.carousel.querySelector('.left-button');
+        const rightBtn = this.carousel.querySelector('.right-button');
+        let carouselImg = this.carousel.querySelectorAll('img');
+        let counter = 0;
+        const images = Array.from(carouselImg).map((image, index) => { 
+            const imgIndex = image.dataset.id = index;
+            return imgIndex;
+        });
 
+        leftBtn.addEventListener('click', function(event){
+            if(counter <= 0) {
+                counter = carouselImg.length - 1;
+                removeActive();
+                imageCounter();
+                console.log(this.currentImg);
+            } else {
+                --counter;
+                removeActive();
+                imageCounter();
+            }
+        })
+        
+        rightBtn.addEventListener('click', function(event){
+            if(counter >= carouselImg.length - 1) {
+                counter = 0;
+                removeActive();
+                imageCounter();
+            } else {
+                ++counter;
+                removeActive();
+                imageCounter();
+            }
+        })
+
+        const imageCounter = () => {
+            images.forEach(imageIdx => {
+                if(imageIdx === counter) {
+                    this.currentImg = document.querySelector(`img[data-id="${imageIdx}"]`);
+                    this.currentImg.style.display = 'block'; 
+                    this.currentImg.style.animationName = 'slideLeft';
+                    this.currentImg.style.animationTimingFunction = 'easeOut';
+                    this.currentImg.style.animationDuration = '3s';
+                    this.currentImg.classList.add('active'); 
+                    return this.currentImg;
+                }   
+            });
+        }
+
+        const removeActive = () => {
+            images.forEach(imageIdx => {
+                if(imageIdx !== counter) {
+                    this.currentImg.style.display = 'none'; 
+                    this.currentImg.classList.remove('active');  
+                }
+            })
+        }
+
+        imageCounter();
+
+        const slideLeft = () => {
+
+        }
+    }  
 }
 
-let carousel = document.querySelector();
+let carousel = document.querySelector('.carousel');
+let currentIdx = 0;
+let newCarousel = new Carousel(carousel, currentIdx);
 
 /* If You've gotten this far, you're on your own! Although we will give you some hints:
     1. You will need to grab a reference to the carousel, and in it grab the left and right buttons
