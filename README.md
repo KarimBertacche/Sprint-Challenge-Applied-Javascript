@@ -31,14 +31,21 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
 1. What is the DOM?
+The DOM or Document Object Model is a dynamic object representation of the webpage(s) structured as a tree composed of parent and children nodes, going from the root node representing the html tag all the way down to node and leaf nodes, these nodes represent the html element and content rendered by the browser, the DOM is a language neutral API meaning that it supports multiple languages and was not designed with a specific language in mind.
+Through the DOM we can modify the markup of webpages updating is styling, content, and structure, when appliying styling through the DOM, those becomes inline styling, directly effecting the elements, these inline styling takes precendence over CSS counterparts so therefore gets rendered by the browser(the DOM those not effect the CSS files).
 
 2. What is an event?
+Events are the way users interact with the browser, events are used to collect information from the user interaction with the webpage and send back response through the use of function that give dynamic functionality to the browser or collect data.
 
 3. What is an event listener?
+Event listener are used to set callback function when that particular event specified by the first parameter is fired by the element/object to which the event is been attached to, for example element.addEventListener('click' -> the event we are listening for, callback -> the function that gets triggered when the event that we are listening to fires) when the user clicks on the element to which the event listener is bound, then a callback function is triggered that results in a specific action performed.
+Inline event listener can also be applied, but they are not considered best practice as an element is then only limited to a single event listener.
 
 4. Why would we convert a NodeList into an Array?
+Nodelist by nature have an array like structure, but are not real javascript arrays as the DOM was created with multiple languages in mind, therefore they only come with limited methods on it, such as the length property and the .forEach() method, if we want to use other array methods on the NodeList than we have to convert it to a real array, this can be achieved by using Array.from(NodeList to convert) method.
 
 5. What is a component?
+A component represents a chunk of html, css, and javascript code that is reusable and independent from the rest of the code, those snippet of logic can than be reused across the same project making the code dryer, and are also reusable across multiple projects, components are also at the chore of React.
 
 ### Git Set up
 
